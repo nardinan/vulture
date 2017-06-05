@@ -17,7 +17,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "PVInterface.h"
-#define d_max_surfaces 20
+#define INTRO_ALPHA_SLEEP_TIME_USEC 20000
+#define INTRO_PGS_SLEEP_TIME_USEC 1000000
 SDL_Texture *pgs = NULL;
 SDL_Texture *tags = NULL;
 SDL_Texture *backgroundS = NULL;
@@ -288,33 +289,37 @@ int Cinterface::initialize(void) {
 int Cinterface::intro(void) {
     int pgsalpha = 0;
     if (screen) {
+        SDL_SetTextureBlendMode(pgs, SDL_BLENDMODE_BLEND);
+        SDL_SetTextureBlendMode(vulture, SDL_BLENDMODE_BLEND);
         for (pgsalpha = 0; pgsalpha < 255; pgsalpha += 5) {
             getinput();
-            if (rectangle(0, 0, 640, 480, 0, 0, 0) != 0)
-                return 1;
-            else if (SDL_SetTextureAlphaMod(pgs, pgsalpha) != 0)
+            SDL_RenderClear(render);
+            if (SDL_SetTextureAlphaMod(pgs, pgsalpha) != 0)
                 return 1;
             SDL_RenderCopy(render, pgs, NULL, NULL);
             SDL_RenderPresent(render);
+            usleep(INTRO_ALPHA_SLEEP_TIME_USEC);
         }
+        usleep(INTRO_PGS_SLEEP_TIME_USEC);
         for (pgsalpha = 0; pgsalpha < 255; pgsalpha += 5) {
             getinput();
-            if (rectangle(0, 0, 640, 480, 0, 0, 0) != 0)
-                return 1;
-            else if (SDL_SetTextureAlphaMod(vulture, pgsalpha) != 0)
+            SDL_RenderClear(render);
+            if (SDL_SetTextureAlphaMod(vulture, pgsalpha) != 0)
                 return 1;
             SDL_RenderCopy(render, pgs, NULL, NULL);
             SDL_RenderCopy(render, vulture, NULL, NULL);
             SDL_RenderPresent(render);
+            usleep(INTRO_ALPHA_SLEEP_TIME_USEC);
         }
+        usleep(INTRO_PGS_SLEEP_TIME_USEC);
         for (pgsalpha = 255; pgsalpha > 0; pgsalpha -= 2) {
             getinput();
-            if (rectangle(0, 0, 640, 480, 0, 0, 0) != 0)
-                return 1;
-            else if (SDL_SetTextureAlphaMod(vulture, pgsalpha) != 0)
+            SDL_RenderClear(render);
+            if (SDL_SetTextureAlphaMod(vulture, pgsalpha) != 0)
                 return 1;
             SDL_RenderCopy(render, vulture, NULL, NULL);
             SDL_RenderPresent(render);
+            usleep(INTRO_ALPHA_SLEEP_TIME_USEC);
         }
     } else
         return 1;

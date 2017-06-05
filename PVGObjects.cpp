@@ -50,10 +50,12 @@ Cobject *Cgobjects::get(char *name, Cplayer *player) {
             position = getvalue("SYSTEM", "Position", list->object->logics, 0);
             if ((compare.vcmpcase(list->object->descriptions.completename(position), LSTRSIZE(objectname)) == 0) ||
                     (compare.vcmpcase(list->object->descriptions.smalldescription(position), LSTRSIZE(objectname)) == 0)) {
-                if (--value < 1) result = list->object;
+                if (--value < 1) 
+                    result = list->object;
             }
         }
-    } else return NULL;
+    } else 
+        return NULL;
     if (objectname) {
         pvfree(objectname);
         objectname = NULL;
@@ -77,11 +79,14 @@ Cobject *Cgobjects::get(char *name, Cobject *object) {
                 position = getvalue("SYSTEM", "Position", list->object->logics, 0);
                 if ((compare.vcmpcase(list->object->descriptions.completename(position), LSTRSIZE(objectname)) == 0) ||
                         (compare.vcmpcase(list->object->descriptions.smalldescription(position), LSTRSIZE(objectname)) == 0)) {
-                    if (--value < 1) result = list->object;
+                    if (--value < 1) 
+                        result = list->object;
                 }
             }
-        } else return NULL;
-    } else return NULL;
+        } else 
+            return NULL;
+    } else 
+        return NULL;
     if (objectname) {
         pvfree(objectname);
         objectname = NULL;
@@ -96,7 +101,6 @@ Cobject *Cgobjects::get(char *name, Cobject *object) {
 Cobject *Cgobjects::get(char *name, Ctile *tile) {
     Cobject *result = NULL;
     objectslist *list = tile->getobjectsroot();
-    ;
     int value = 0, position = 0;
     char *backup = NULL, *objectname = NULL;
     if ((value = getname(name, &objectname)) > 0) {
@@ -104,11 +108,13 @@ Cobject *Cgobjects::get(char *name, Ctile *tile) {
             position = getvalue("SYSTEM", "Position", list->object->logics, 0);
             if ((compare.vcmpcase(list->object->descriptions.completename(position), LSTRSIZE(objectname)) == 0) ||
                     (compare.vcmpcase(list->object->descriptions.smalldescription(position), LSTRSIZE(objectname)) == 0)) {
-                if (--value < 1) result = list->object;
+                if (--value < 1) 
+                    result = list->object;
             }
             list = list->next;
         }
-    } else return NULL;
+    } else 
+        return NULL;
     if (objectname) {
         pvfree(objectname);
         objectname = NULL;
@@ -131,10 +137,12 @@ Cobject *Cgobjects::get(char *name, Cmob *mob) {
             position = getvalue("SYSTEM", "Position", list->object->logics, 0);
             if ((compare.vcmpcase(list->object->descriptions.completename(position), LSTRSIZE(objectname)) == 0) ||
                     (compare.vcmpcase(list->object->descriptions.smalldescription(position), LSTRSIZE(objectname)) == 0)) {
-                if (--value < 1) result = list->object;
+                if (--value < 1) 
+                    result = list->object;
             }
         }
-    } else return NULL;
+    } else 
+        return NULL;
     if (objectname) {
         pvfree(objectname);
         objectname = NULL;
@@ -153,10 +161,12 @@ Cobject *Cgobjects::getweapon(char *position, Ccharacter *character) {
     while ((list = character->nextvalue())) {
         if ((list->object->logics.hascategory("WEAPON") == 0) &&
                 (getvalue("USAGE", "Use", list->object->logics, 0) > 0)) {
-            if (compare.vcmpcase(position, CSTRSIZE("*")) == 0) return list->object;
+            if (compare.vcmpcase(position, CSTRSIZE("*")) == 0) 
+                return list->object;
             else {
                 if ((target = list->object->logics.getvalue("USAGE", 4)) &&
-                        (compare.vcmpcase(position, LSTRSIZE(target)) == 0)) return list->object;
+                        (compare.vcmpcase(position, LSTRSIZE(target)) == 0)) 
+                    return list->object;
             }
         }
     }
@@ -170,10 +180,12 @@ Cobject *Cgobjects::getweapon(char *position, Cplayer *player) {
     while ((list = player->nextvalue())) {
         if ((list->object->logics.hascategory("WEAPON") == 0) &&
                 (getvalue("USAGE", "Use", list->object->logics, 0) > 0)) {
-            if (compare.vcmpcase(position, CSTRSIZE("*")) == 0) return list->object;
+            if (compare.vcmpcase(position, CSTRSIZE("*")) == 0) 
+                return list->object;
             else {
                 if ((target = list->object->logics.getvalue("USAGE", 4)) &&
-                        (compare.vcmpcase(position, LSTRSIZE(target)) == 0)) return list->object;
+                        (compare.vcmpcase(position, LSTRSIZE(target)) == 0)) 
+                    return list->object;
             }
         }
     }
@@ -187,10 +199,12 @@ Cobject *Cgobjects::getweapon(char *position, Cmob *mob) {
     while ((list = mob->nextvalue())) {
         if ((list->object->logics.hascategory("WEAPON") == 0) &&
                 (getvalue("USAGE", "Use", list->object->logics, 0) > 0)) {
-            if (compare.vcmpcase(position, CSTRSIZE("*")) == 0) return list->object;
+            if (compare.vcmpcase(position, CSTRSIZE("*")) == 0) 
+                return list->object;
             else {
                 if ((target = list->object->logics.getvalue("USAGE", 4)) &&
-                        (compare.vcmpcase(position, LSTRSIZE(target)) == 0)) return list->object;
+                        (compare.vcmpcase(position, LSTRSIZE(target)) == 0)) 
+                    return list->object;
             }
         }
     }
@@ -203,10 +217,12 @@ Cobject *Cgobjects::getobject(char *position, Cplayer *player) {
     player->resetvalue();
     while ((list = player->nextvalue())) {
         if (getvalue("USAGE", "Use", list->object->logics, 0) > 0) {
-            if (compare.vcmpcase(position, CSTRSIZE("*")) == 0) return list->object;
+            if (compare.vcmpcase(position, CSTRSIZE("*")) == 0) 
+                return list->object;
             else {
                 if ((target = list->object->logics.getvalue("USAGE", 4)) &&
-                        (compare.vcmpcase(position, LSTRSIZE(target)) == 0)) return list->object;
+                        (compare.vcmpcase(position, LSTRSIZE(target)) == 0)) 
+                    return list->object;
             }
         }
     }
@@ -219,10 +235,12 @@ Cobject *Cgobjects::getobject(char *position, Cmob *mob) {
     mob->resetvalue();
     while ((list = mob->nextvalue())) {
         if (getvalue("USAGE", "Use", list->object->logics, 0) > 0) {
-            if (compare.vcmpcase(position, CSTRSIZE("*")) == 0) return list->object;
+            if (compare.vcmpcase(position, CSTRSIZE("*")) == 0) 
+                return list->object;
             else {
                 if ((target = list->object->logics.getvalue("USAGE", 4)) &&
-                        (compare.vcmpcase(position, LSTRSIZE(target)) == 0)) return list->object;
+                        (compare.vcmpcase(position, LSTRSIZE(target)) == 0))
+                    return list->object;
             }
         }
     }
@@ -233,9 +251,8 @@ int Cgobjects::getweight(Cplayer *player) {
     objectslist *list = NULL;
     int weight = 0;
     player->resetvalue();
-    while ((list = player->nextvalue())) {
+    while ((list = player->nextvalue()))
         weight += getweight(list->object);
-    }
     return weight;
 }
 
@@ -279,28 +296,36 @@ Cobject *Cgobjects::build(char *name) {
     snprintf(path, _DEFAULT_MIND_LEN, _PVFILES "objects/%s.do", name);
     if ((configurationfile = fopen(path, "r"))) {
         if ((object = new(Cobject)) && (object->load(configurationfile) == 0))
-            if (!(copy = gameobjects.addobject(object))) return NULL;
+            if (!(copy = gameobjects.addobject(object))) 
+                return NULL;
         fclose(configurationfile);
-    } else return NULL;
+    } else 
+        return NULL;
     return copy->object;
 }
 
 Cobject *Cgobjects::duplicate(Cobject *object) {
     objectslist *copy = NULL;
     if ((copy = gameobjects.addobject(object))) {
-        if (!copy) return NULL;
-    } else return NULL;
+        if (!copy) 
+            return NULL;
+    } else 
+        return NULL;
     return copy->object;
 }
 
 char *Cgobjects::getcompletename(Cobject *object) {
     char *buffer = NULL, string[_DEFAULT_MAXD_LEN];
     int position = getvalue("SYSTEM", "Position", object->logics, 0);
-    snprintf(string, _DEFAULT_MAXD_LEN, "%s %s %s", (object->getsex() != MALE) ? "una" : "uno", object->descriptions.completename(position), object->descriptions.smalldescription(position));
+    snprintf(string, _DEFAULT_MAXD_LEN, "%s %s %s", 
+        (object->getsex() != MALE) ? "una" : "uno", 
+        object->descriptions.completename(position), 
+        object->descriptions.smalldescription(position));
     if ((buffer = (char *) pvmalloc(strlen(string) + 1))) {
         strcpy(buffer, string);
         buffer[strlen(string)] = '\0';
-    } else return NULL;
+    } else 
+        return NULL;
     return buffer;
 }
 
@@ -329,14 +354,17 @@ char *Cgobjects::getposition(Cobject *object) {
             if ((buffer = (char *) pvmalloc(strlen(objepositions[index].string) + 1))) {
                 strcpy(buffer, objepositions[index].string);
                 buffer[strlen(objepositions[index].string)] = '\0';
-            } else return NULL;
+            } else 
+                return NULL;
         } else {
             if ((buffer = (char *) pvmalloc(sizeof ("da nessuna parte!") + 1))) {
                 strcpy(buffer, "da nessuna parte!");
                 buffer[strlen("da nessuna parte!")] = '\0';
-            } else return NULL;
+            } else 
+                return NULL;
         }
-    } else return NULL;
+    } else 
+        return NULL;
     return buffer;
 }
 
@@ -371,7 +399,8 @@ char *Cgobjects::getinventory(Cplayer *player) {
                     string[_DEFAULT_MIND_LEN - 2] = '.';
                     string[_DEFAULT_MIND_LEN - 1] = '\0';
                 }
-                if (allocate.vadd(&buffer, string) > 0) return NULL;
+                if (allocate.vadd(&buffer, string) > 0) 
+                    return NULL;
                 quantity = 1;
             }
         }
@@ -388,7 +417,8 @@ char *Cgobjects::getinventory(Cplayer *player) {
         if ((buffer = (char *) pvmalloc(sizeof ("nulla![n]") + 1))) {
             strcpy(buffer, "nulla![n]");
             buffer[sizeof ("nulla![n]")] = '\0';
-        } else return NULL;
+        } else 
+            return NULL;
     }
     return buffer;
 }
@@ -424,7 +454,8 @@ char *Cgobjects::getinventory(Cmob *mob) {
                     string[_DEFAULT_MIND_LEN - 2] = '.';
                     string[_DEFAULT_MIND_LEN - 1] = '\0';
                 }
-                if (allocate.vadd(&buffer, string) > 0) return NULL;
+                if (allocate.vadd(&buffer, string) > 0) 
+                    return NULL;
                 quantity = 1;
             }
         }
@@ -441,7 +472,8 @@ char *Cgobjects::getinventory(Cmob *mob) {
         if ((buffer = (char *) pvmalloc(sizeof ("nulla![n]") + 1))) {
             strcpy(buffer, "nulla![n]");
             buffer[sizeof ("nulla![n]")] = '\0';
-        } else return NULL;
+        } else 
+            return NULL;
     }
     return buffer;
 }
@@ -479,7 +511,8 @@ char *Cgobjects::getlook(Cplayer *player) {
                         string[_DEFAULT_MIND_LEN - 2] = '.';
                         string[_DEFAULT_MIND_LEN - 1] = '\0';
                     }
-                    if (allocate.vadd(&buffer, string) > 0) return NULL;
+                    if (allocate.vadd(&buffer, string) > 0) 
+                        return NULL;
                     quantity = 1;
                 }
             }
@@ -492,7 +525,8 @@ char *Cgobjects::getlook(Cplayer *player) {
             position = NULL;
         }
     }
-    if (!buffer) if ((buffer = allocate.vsalloc("sembra sia completamente nud%s![n]", (player->getsex() != MALE) ? "a" : "o")));
+    if (!buffer)
+        buffer = allocate.vsalloc("sembra sia completamente nud%s![n]", (player->getsex() != MALE) ? "a" : "o");
     return buffer;
 }
 
@@ -509,13 +543,16 @@ char *Cgobjects::getlook(Cobject *object) {
     }
     if (object->logics.hascategory("CONTAINER") == 0) {
         if (getvalue("CONTAINER", "Open", object->logics, 0) == 0) {
-            if (getvalue("CONTAINER", "Lock", object->logics, 0) == 0) strncat(string, "[n]E' [red]chiuso[reset]![n]", _DEFAULT_MIND_LEN);
-            else strncat(string, "[n]E' [red]bloccato[reset]![n]", _DEFAULT_MIND_LEN);
+            if (getvalue("CONTAINER", "Lock", object->logics, 0) == 0) 
+                strncat(string, "[n]E' [red]chiuso[reset]![n]", _DEFAULT_MIND_LEN);
+            else 
+                strncat(string, "[n]E' [red]bloccato[reset]![n]", _DEFAULT_MIND_LEN);
         } else {
             strncat(string, "[n]E' [green]aperto[reset]! ", _DEFAULT_MAXD_LEN);
             object->resetvalue();
             while ((list = object->nextvalue())) {
-                if ((list->next) && (getvalue("SYSTEM", "Parent", list->next->object->logics, 0) == getvalue("SYSTEM", "Parent", list->object->logics, 0))) quantity++;
+                if ((list->next) && (getvalue("SYSTEM", "Parent", list->next->object->logics, 0) == getvalue("SYSTEM", "Parent", list->object->logics, 0))) 
+                    quantity++;
                 else {
                     snprintf(backup, _DEFAULT_MIND_LEN, "[n]\t- (%s) %s %s %s",
                             value = funny.vdigit(quantity), this->getsimplename(list->object),
@@ -534,12 +571,14 @@ char *Cgobjects::getlook(Cobject *object) {
                         string[_DEFAULT_MIND_LEN - 2] = '.';
                         string[_DEFAULT_MIND_LEN - 1] = '\0';
                     }
-                    if (allocate.vadd(&contents, backup) > 0) return NULL;
+                    if (allocate.vadd(&contents, backup) > 0) 
+                        return NULL;
                     quantity = 1;
                 }
             }
             if (!contents) {
-                if (allocate.vadd(&contents, "Ma dentro non c'e' nulla!") > 0) return NULL;
+                if (allocate.vadd(&contents, "Ma dentro non c'e' nulla!") > 0) 
+                    return NULL;
             }
         }
     }
@@ -547,12 +586,15 @@ char *Cgobjects::getlook(Cobject *object) {
         strcpy(buffer, string);
         buffer[strlen(string)] = '\0';
         if (contents) {
-            if (allocate.vadd(&buffer, contents) > 0) return NULL;
+            if (allocate.vadd(&buffer, contents) > 0) 
+                return NULL;
             pvfree(contents);
             contents = NULL;
         }
-        if (allocate.vadd(&buffer, "[n]") > 0) return NULL;
-    } else return NULL;
+        if (allocate.vadd(&buffer, "[n]") > 0) 
+            return NULL;
+    } else 
+        return NULL;
     return buffer;
 }
 
@@ -563,7 +605,8 @@ char *Cgobjects::getlook(Ctile *tile) {
     while (list) {
         if ((list->next) && (getvalue("SYSTEM", "Parent", list->next->object->logics, 0) == getvalue("SYSTEM", "Parent", list->object->logics, 0))) quantity++;
         else {
-            for (int index = 0; index < _DEFAULT_MIND_LEN; index++) string[index] = '\0';
+            for (int index = 0; index < _DEFAULT_MIND_LEN; index++) 
+                string[index] = '\0';
             lpoints = getvalue("STATS", "LPoints", list->object->logics, 0);
             snprintf(string, _DEFAULT_MIND_LEN, "[O] (%s) %s %s ", value = funny.vdigit(quantity), this->getsimplename(list->object), this->getadjective(list->object));
             if (value) {
@@ -572,8 +615,10 @@ char *Cgobjects::getlook(Ctile *tile) {
             }
             if (list->object->logics.hascategory("CONTAINER") == 0) {
                 if (getvalue("CONTAINER", "Open", list->object->logics, 0) == 0) {
-                    if (getvalue("CONTAINER", "Lock", list->object->logics, 0) == 0) strncat(string, "([red]chiuso[reset]) ", _DEFAULT_MIND_LEN);
-                    else strncat(string, "([red]bloccato[reset]) ", _DEFAULT_MIND_LEN);
+                    if (getvalue("CONTAINER", "Lock", list->object->logics, 0) == 0) 
+                        strncat(string, "([red]chiuso[reset]) ", _DEFAULT_MIND_LEN);
+                    else 
+                        strncat(string, "([red]bloccato[reset]) ", _DEFAULT_MIND_LEN);
                 } else {
                     strncat(string, "([green]aperto[reset]) ", _DEFAULT_MIND_LEN);
                 }
@@ -584,16 +629,21 @@ char *Cgobjects::getlook(Ctile *tile) {
                 string[_DEFAULT_MIND_LEN - 2] = '.';
                 string[_DEFAULT_MIND_LEN - 1] = '\0';
             }
-            if (allocate.vadd(&buffer, string) > 0) return NULL;
+            if (allocate.vadd(&buffer, string) > 0) 
+                return NULL;
             if (getvalue("RANK", "Immortal", list->object->logics, 0) == 1) {
-                if (allocate.vadd(&buffer, "[[green]I[reset]][n]") > 0) return NULL;
+                if (allocate.vadd(&buffer, "[[green]I[reset]][n]") > 0) 
+                    return NULL;
             } else {
                 if (lpoints < 3) {
-                    if (allocate.vadd(&buffer, "[[red]P[reset]][n]") > 0) return NULL;
+                    if (allocate.vadd(&buffer, "[[red]P[reset]][n]") > 0) 
+                        return NULL;
                 } else if (lpoints < 6) {
-                    if (allocate.vadd(&buffer, "[[yellow]D[reset]][n]") > 0) return NULL;
+                    if (allocate.vadd(&buffer, "[[yellow]D[reset]][n]") > 0) 
+                        return NULL;
                 } else {
-                    if (allocate.vadd(&buffer, "[[green]O[reset]][n]") > 0) return NULL;
+                    if (allocate.vadd(&buffer, "[[green]O[reset]][n]") > 0) 
+                        return NULL;
                 }
             }
             quantity = 1;
@@ -636,7 +686,8 @@ char *Cgobjects::getlook(Cmob *mob) {
                         string[_DEFAULT_MIND_LEN - 2] = '.';
                         string[_DEFAULT_MIND_LEN - 1] = '\0';
                     }
-                    if (allocate.vadd(&buffer, string) > 0) return NULL;
+                    if (allocate.vadd(&buffer, string) > 0) 
+                        return NULL;
                     quantity = 1;
                 }
             }
@@ -649,6 +700,7 @@ char *Cgobjects::getlook(Cmob *mob) {
             position = NULL;
         }
     }
-    if (!buffer) if ((buffer = allocate.vsalloc("sembra sia completamente nud%s![n]", (mob->getsex() != MALE) ? "a" : "o")));
+    if (!buffer)
+        buffer = allocate.vsalloc("sembra sia completamente nud%s![n]", (mob->getsex() != MALE) ? "a" : "o");
     return buffer;
 }

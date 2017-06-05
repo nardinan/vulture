@@ -117,28 +117,37 @@ int PVobject::generate(void) {
                 if ((object = new(Cobject)) && (object->load(configurationfile) == 0)) {
                     if ((copy = pvulture.objects.gameobjects.addobject(object))) {
                         if ((pvulture.objects.getweight(copy->object) + pvulture.objects.getweight(infos.player)) <= getvalue("STATS", "WPoints", infos.player->logics, 0)) {
-                            if (infos.player->addobject(copy->object) > 0) return 1;
-                            if (infos.player->pvsend(pvulture.server, "[reset][green]hai creato %s[n]", objectname = pvulture.objects.getcompletename(copy->object)) > 0) return 1;
+                            if (infos.player->addobject(copy->object) > 0) 
+                                return 1;
+                            if (infos.player->pvsend(pvulture.server, "[reset][green]hai creato %s[n]", objectname = pvulture.objects.getcompletename(copy->object)) > 0)
+                                return 1;
                             if (objectname) {
                                 pvfree(objectname);
                                 objectname = NULL;
                             }
                         } else {
-                            if (infos.player->position->addobject(copy->object) > 0) return 1;
-                            if (infos.player->pvsend(pvulture.server, "[reset][green]hai creato %s ma l'hai lasciato a terra[n]", objectname = pvulture.objects.getcompletename(copy->object)) > 0) return 1;
+                            if (infos.player->position->addobject(copy->object) > 0)
+                                return 1;
+                            if (infos.player->pvsend(pvulture.server, "[reset][green]hai creato %s ma l'hai lasciato a terra[n]", objectname = pvulture.objects.getcompletename(copy->object)) > 0) 
+                                return 1;
                             if (objectname) {
                                 pvfree(objectname);
                                 objectname = NULL;
                             }
                         }
-                    } else return 1;
+                    } else 
+                        return 1;
                     object->unload();
                     delete(object);
-                } else LOG_ERROR("Unable to read TEMPLATE %s", message);
+                } else 
+                    LOG_ERROR("Unable to read TEMPLATE %s", message);
                 fclose(configurationfile);
-            } else if (infos.player->pvsend(pvulture.server, "[reset]non esiste un template con quel nome![n]") > 0) return 1;
-        } else if (infos.player->pvsend(pvulture.server, "[reset]devi specificare il nome di un template oggetto![n]") > 0) return 1;
-    } else return 1;
+            } else if (infos.player->pvsend(pvulture.server, "[reset]non esiste un template con quel nome![n]") > 0) 
+                return 1;
+        } else if (infos.player->pvsend(pvulture.server, "[reset]devi specificare il nome di un template oggetto![n]") > 0) 
+            return 1;
+    } else
+        return 1;
     if (message) {
         pvfree(message);
         message = NULL;
@@ -157,17 +166,23 @@ int PVaction::use(void) {
         message[strlen(infos.message)] = '\0';
         if ((command = strings.vpop(&message)) && (message)) {
             if (compare.vcmpcase(command, CSTRSIZE("mangia")) == 0) {
-                if (eat(&message) > 0) LOG_ERROR("Unable to run OBJECTS.EAT()");
+                if (eat(&message) > 0) 
+                    LOG_ERROR("Unable to run OBJECTS.EAT()");
             } else if (compare.vcmpcase(command, CSTRSIZE("bevi")) == 0) {
-                if (drink(&message) > 0) LOG_ERROR("Unable to run OBJECTS.DRINK()");
+                if (drink(&message) > 0) 
+                    LOG_ERROR("Unable to run OBJECTS.DRINK()");
             } else if (compare.vcmpcase(command, CSTRSIZE("leggi")) == 0) {
-                if (read(&message) > 0) LOG_ERROR("Unable to run OBJECTS.READ()");
+                if (read(&message) > 0) 
+                    LOG_ERROR("Unable to run OBJECTS.READ()");
             } else if (compare.vcmpcase(command, CSTRSIZE("scrivi")) == 0) {
-                if (write(&message) > 0) LOG_ERROR("Unable to run OBJECTS.WRITE()");
+                if (write(&message) > 0) 
+                    LOG_ERROR("Unable to run OBJECTS.WRITE()");
             } else if (compare.vcmpcase(command, CSTRSIZE("cancella")) == 0) {
-                if (remove(&message) > 0) LOG_ERROR("Unable to run OBJECTS.WRITE()");
+                if (remove(&message) > 0)
+                    LOG_ERROR("Unable to run OBJECTS.WRITE()");
             } else if ((compare.vcmpcase(command, CSTRSIZE("usa")) == 0) || (compare.vcmpcase(command, CSTRSIZE("indossa")) == 0)) {
-                if (equip(&message) > 0) LOG_ERROR("Unable to run OBJECTS.EQUIP()");
+                if (equip(&message) > 0) 
+                    LOG_ERROR("Unable to run OBJECTS.EQUIP()");
             } else if (infos.player->pvsend(pvulture.server, "[reset]non e' un tipo di utilizzo consono![n]") > 0) return 1;
         } else if (infos.player->pvsend(pvulture.server, "[reset]devi specificare un'azione e un oggetto![n]") > 0) return 1;
     } else return 1;
@@ -191,28 +206,42 @@ int PVaction::drop(void) {
         if ((command = strings.vpop(&message)) && (message)) {
             if ((object = pvulture.objects.get(message, infos.player))) {
                 if (getvalue("USAGE", "Use", object->logics, 0) == 0) {
-                    if (infos.player->delobject(object->getID()) > 0) return 1;
-                    if (infos.player->position->addobject(object) > 0) return 1;
-                    if (infos.player->pvsend(pvulture.server, "[reset][green]hai lasciato %s[n]", objectname = pvulture.objects.getcompletename(object)) > 0) return 1;
+                    if (infos.player->delobject(object->getID()) > 0) 
+                        return 1;
+                    if (infos.player->position->addobject(object) > 0) 
+                        return 1;
+                    if (infos.player->pvsend(pvulture.server, "[reset][green]hai lasciato %s[n]", 
+                                             objectname = pvulture.objects.getcompletename(object)) > 0) 
+                        return 1;
                     if (infos.player->logics.hasvalue("STATUS", "Hide") != 0) {
                         if (infos.player->position->getplayer(infos.player->getID())) {
-                            if (infos.player->position->delplayer(infos.player->getID()) > 0) return 1;
+                            if (infos.player->position->delplayer(infos.player->getID()) > 0)
+                                return 1;
                         }
-                        if (spvsend(pvulture.server, infos.player->position, (buffer = allocate.vsalloc("[reset][n][yellow]$name lascia a terra %s[n]", objectname)), (Ccharacter *) infos.player) > 0) return 1;
-                        if (infos.player->position->spvsend(pvulture.server, sshell) > 0) return 1;
+                        if (spvsend(pvulture.server, infos.player->position, 
+                                    (buffer = allocate.vsalloc("[reset][n][yellow]$name lascia a terra %s[n]", objectname)),
+                                    (Ccharacter *) infos.player) > 0) 
+                            return 1;
+                        if (infos.player->position->spvsend(pvulture.server, sshell) > 0) 
+                            return 1;
                         if (!infos.player->position->getplayer(infos.player->getID())) {
-                            if (infos.player->position->addplayer(infos.player) > 0) return 1;
+                            if (infos.player->position->addplayer(infos.player) > 0) 
+                                return 1;
                         }
                     }
                     if ((infos.player->logics.hascategory("FIGHT") == 0) && (infos.player->logics.hasvalue("FIGHT", "Last") == 0))
-                        if (infos.player->logics.addvalue("FIGHT", "Last", (infos.player->logics.getvalue("FIGHT", "Last") + _AADELAY)) > 0) LOG_ERROR("Unable to add FIGHT->Last Logic");
+                        if (infos.player->logics.addvalue("FIGHT", "Last", (infos.player->logics.getvalue("FIGHT", "Last") + _AADELAY)) > 0)
+                            LOG_ERROR("Unable to add FIGHT->Last Logic");
                     if (objectname) {
                         pvfree(objectname);
                         objectname = NULL;
                     }
-                } else if (infos.player->pvsend(pvulture.server, "[reset]lo stai usando proprio ora![n]") > 0) return 1;
-            } else if (infos.player->pvsend(pvulture.server, "[reset]non stai portando nulla del genere![n]") > 0) return 1;
-        } else if (infos.player->pvsend(pvulture.server, "[reset]devi specificare un oggetto![n]") > 0) return 1;
+                } else if (infos.player->pvsend(pvulture.server, "[reset]lo stai usando proprio ora![n]") > 0) 
+                    return 1;
+            } else if (infos.player->pvsend(pvulture.server, "[reset]non stai portando nulla del genere![n]") > 0) 
+                return 1;
+        } else if (infos.player->pvsend(pvulture.server, "[reset]devi specificare un oggetto![n]") > 0)
+            return 1;
     } else return 1;
     if (message) {
         pvfree(message);
@@ -242,9 +271,12 @@ int PVaction::put(void) {
                     (container = pvulture.objects.get(message, infos.player))) &&
                     (contained = pvulture.objects.get(backup, infos.player))) {
                 value = put(container, contained);
-            } else if (infos.player->pvsend(pvulture.server, "[reset]non vedi nulla con quel nome![n]") > 0) return 1;
-        } else if (infos.player->pvsend(pvulture.server, "[reset]devi specificare cosa vuol mettere e dove![n]") > 0) return 1;
-    } else return 1;
+            } else if (infos.player->pvsend(pvulture.server, "[reset]non vedi nulla con quel nome![n]") > 0) 
+                return 1;
+        } else if (infos.player->pvsend(pvulture.server, "[reset]devi specificare cosa vuol mettere e dove![n]") > 0) 
+            return 1;
+    } else 
+        return 1;
     if (message) {
         pvfree(message);
         message = NULL;
@@ -266,35 +298,50 @@ int PVaction::put(Cobject *container, Cobject *object) {
         if (container->logics.hascategory("CONTAINER") == 0) {
             if (getvalue("CONTAINER", "Open", container->logics, 0) == 1) {
                 if ((pvulture.objects.getweight(object) + pvulture.objects.getweight(container)) <= getvalue("CONTAINER", "Weight", container->logics, 0)) {
-                    if (container->addobject(object) > 0) return 1;
-                    if (infos.player->delobject(object->getID()) > 0) return 1;
-                    if (infos.player->pvsend(pvulture.server, "[reset][green]hai messo %s in %s[n]", objectname = pvulture.objects.getcompletename(object), containername = pvulture.objects.getcompletename(container)) > 0) return 1;
+                    if (container->addobject(object) > 0) 
+                        return 1;
+                    if (infos.player->delobject(object->getID()) > 0) 
+                        return 1;
+                    if (infos.player->pvsend(pvulture.server, "[reset][green]hai messo %s in %s[n]", 
+                                             objectname = pvulture.objects.getcompletename(object), 
+                                             containername = pvulture.objects.getcompletename(container)) > 0) 
+                        return 1;
                     if (objectname) {
                         pvfree(objectname);
                         objectname = NULL;
+                    }
+                    if (infos.player->logics.hasvalue("STATUS", "Hide") != 0) {
+                        if (infos.player->position->getplayer(infos.player->getID())) {
+                            if (infos.player->position->delplayer(infos.player->getID()) > 0) 
+                                return 1;
+                        }
+                        if (spvsend(pvulture.server, infos.player->position, 
+                                    (buffer = allocate.vsalloc("[reset][n][yellow]$name mette qualcosa in %s[n]", containername)), 
+                                    (Ccharacter *) infos.player) > 0) 
+                            return 1;
+                        if (buffer) {
+                            pvfree(buffer);
+                            buffer = NULL;
+                        }
+                        if (infos.player->position->spvsend(pvulture.server, sshell) > 0) 
+                            return 1;
+                        if (!infos.player->position->getplayer(infos.player->getID())) {
+                            if (infos.player->position->addplayer(infos.player) > 0) 
+                                return 1;
+                        }
                     }
                     if (containername) {
                         pvfree(containername);
                         containername = NULL;
                     }
-                    if (infos.player->logics.hasvalue("STATUS", "Hide") != 0) {
-                        if (infos.player->position->getplayer(infos.player->getID())) {
-                            if (infos.player->position->delplayer(infos.player->getID()) > 0) return 1;
-                        }
-                        if (spvsend(pvulture.server, infos.player->position, (buffer = allocate.vsalloc("[reset][n][yellow]$name mette qualcosa in %s[n]", containername)), (Ccharacter *) infos.player) > 0) return 1;
-                        if (buffer) {
-                            pvfree(buffer);
-                            buffer = NULL;
-                        }
-                        if (infos.player->position->spvsend(pvulture.server, sshell) > 0) return 1;
-                        if (!infos.player->position->getplayer(infos.player->getID())) {
-                            if (infos.player->position->addplayer(infos.player) > 0) return 1;
-                        }
-                    }
-                } else if (infos.player->pvsend(pvulture.server, "[reset]non puo' contenere altri oggetti![n]") > 0) return 1;
-            } else if (infos.player->pvsend(pvulture.server, "[reset]e' chiuso![n]") > 0) return 1;
-        } else if (infos.player->pvsend(pvulture.server, "[reset]non puo' contenere oggetti![n]") > 0) return 1;
-    } else if (infos.player->pvsend(pvulture.server, "[reset]lo stai usando proprio ora![n]") > 0) return 1;
+                } else if (infos.player->pvsend(pvulture.server, "[reset]non puo' contenere altri oggetti![n]") > 0) 
+                    return 1;
+            } else if (infos.player->pvsend(pvulture.server, "[reset]e' chiuso![n]") > 0) 
+                return 1;
+        } else if (infos.player->pvsend(pvulture.server, "[reset]non puo' contenere oggetti![n]") > 0) 
+            return 1;
+    } else if (infos.player->pvsend(pvulture.server, "[reset]lo stai usando proprio ora![n]") > 0) 
+        return 1;
     return 0;
 }
 

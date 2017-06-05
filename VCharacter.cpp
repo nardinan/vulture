@@ -117,13 +117,16 @@ int Ccharacter::addobject(Cobject *object) {
     objectslist *list = objectsroot, *backup = NULL;
     if (!getobject(object->getID())) {
         if (objectsroot) {
-            while ((list->next) && (list->object->logics.getvalue("SYSTEM", "Parent") != object->logics.getvalue("SYSTEM", "Parent"))) {
-                list = list->next;
-                if (list->object->logics.hasvalue("SYSTEM", "Parent") != 0) {
-                    LOG_ERROR("Unable to find SYSTEM->Parent Logic");
-                    break;
+            if (list->object->logics.hasvalue("SYSTEM", "Parent") == 0) {
+                while ((list->next) && (list->object->logics.getvalue("SYSTEM", "Parent") != object->logics.getvalue("SYSTEM", "Parent"))) {
+                    list = list->next;
+                    if (list->object->logics.hasvalue("SYSTEM", "Parent") != 0) {
+                        LOG_ERROR("Unable to find SYSTEM->Parent Logic");
+                        break;
+                    }
                 }
-            }
+            } else 
+                LOG_ERROR("Unable to find SYSTEM->Parent Logic");
             if (list->next) {
                 backup = list->next;
                 if ((list->next = (objectslist *) pvmalloc(sizeof (objectslist)))) {

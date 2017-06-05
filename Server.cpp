@@ -21,6 +21,8 @@
 #include "PVActions.h"
 #include "PVulture.h"
 
+#define LOOP_SLEEP_USEC 5000
+
 int loadcommands(void) {
     if (pvulture.usrcommands.addcommand(":", "[azione]<emoticon>", personal, 1) > 0) return 1;
     if (pvulture.usrcommands.addcommand("alza", "[no parametri]", personal, 4) > 0) return 1;
@@ -519,6 +521,7 @@ int loop(void) {
         }
         if (pvinterface.showme() > 0) gstop = true;
         pvinterface.update();
+        usleep(LOOP_SLEEP_USEC);
     }
     pvulture.logger.log("SHUTDOWN", "Quitting ...");
     return 0;
@@ -526,10 +529,14 @@ int loop(void) {
 
 int main(int argc, char *argv[]) {
     bool sigerror = false;
-    if (pvinterface.initialize() > 0) return 1;
-    if (pvinterface.intro() > 0) return 1;
-    if (load() == 0) loop();
-    else sigerror = true;
+    if (pvinterface.initialize() > 0) 
+        return 1;
+    if (pvinterface.intro() > 0) 
+        return 1;
+    if (load() == 0) 
+        loop();
+    else
+        sigerror = true;
     unload(sigerror);
     while (pvinterface.getinput().ckey != KESCAPE);
     sdlunload();

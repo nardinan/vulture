@@ -46,11 +46,9 @@ int PVenvironment::look(void) {
 
 int PVenvironment::lookenvironment(Cplayer *player) {
     char *backup = NULL;
-    printf("here -----\n");
     if (player->pvsend(pvulture.server, "%s",
             (backup = pvulture.map.getlook(player->position, pvulture.time.ptime.hour)) ? backup : "") > 0)
         return 1;
-    printf("----- here\n");
     if (backup) {
         pvfree(backup);
         backup = NULL;
@@ -160,7 +158,8 @@ int PVenvironment::date(void) {
         if (infos.player->pvsend(pvulture.server, "[reset][green]sono le ore %d:%2d[n]",
                 pvulture.time.ptime.hour, pvulture.time.ptime.minutes) > 0)
             return 1;
-    } else return 1;
+    } else 
+        return 1;
     return 0;
 }
 

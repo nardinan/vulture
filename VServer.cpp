@@ -298,7 +298,8 @@ void Cserver::unload(void) {
     while (list) {
         socketID = list->socketID;
         list = list->next;
-        if (unload(socketID) > 0) LOG_ERROR("unable to unload Key %d", socketID);
+        if (unload(socketID) > 0) 
+            LOG_ERROR("unable to unload Key %d", socketID);
     }
     if (information.completename) {
         pvfree(information.completename);

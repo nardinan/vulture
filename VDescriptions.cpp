@@ -28,7 +28,8 @@ int Cdescriptions::load(FILE *configurationfile, const char *blockname) {
                 while ((compare.vcmpcase(string, LSTRSIZE(block)) != 0) && (!feof(configurationfile))) {
                     if ((compare.vcmpcase(string, CSTRSIZE("#")) != 0) && (compare.vcmpcase(string, CSTRSIZE("[DESCRIPTIONS]")) != 0)) {
                         if (strings.vsscanf(string, ':', "sssd", &completename, &smalldescription, &largedescription, &integer) == 0)
-                            if (adddescription(integer, completename, smalldescription, largedescription) > 0) return 1;
+                            if (adddescription(integer, completename, smalldescription, largedescription) > 0) 
+                                return 1;
                     }
                     if (completename) {
                         pvfree(completename);
@@ -44,13 +45,16 @@ int Cdescriptions::load(FILE *configurationfile, const char *blockname) {
                     }
                     fgets(string, _DEFAULT_MAXD_LEN + _DEFAULT_NAME_LEN, configurationfile);
                 }
-            } else return 1;
-        } else return 1;
+            } else 
+                return 1;
+        } else 
+            return 1;
         if (block) {
             pvfree(block);
             block = NULL;
         };
-    } else return 1;
+    } else 
+        return 1;
     return 0;
 }
 
@@ -91,7 +95,8 @@ int Cdescriptions::adddescription(unsigned int informationID, const char *comple
     if (informationroot) {
         while (list->next) list = list->next;
         if ((list->next = (informationlist *) pvmalloc(sizeof (informationlist)))) {
-            if (!(list->next->information = (basicinfos *) pvmalloc(sizeof (basicinfos)))) return 1;
+            if (!(list->next->information = (basicinfos *) pvmalloc(sizeof (basicinfos)))) 
+                return 1;
             strncpy(list->next->information->completename, completename, _DEFAULT_NAME_LEN);
             strncpy(list->next->information->smalldescription, smalldescription, _DEFAULT_MIND_LEN);
             strncpy(list->next->information->largedescription, largedescription, _DEFAULT_MAXD_LEN);
@@ -101,7 +106,8 @@ int Cdescriptions::adddescription(unsigned int informationID, const char *comple
             list->next->informationID = informationID;
             list->next->next = NULL;
             list->next->back = list;
-        } else return 1;
+        } else
+            return 1;
     } else {
         if ((informationroot = (informationlist *) pvmalloc(sizeof (informationlist)))) {
             if (!(informationroot->information = (basicinfos *) pvmalloc(sizeof (basicinfos)))) return 1;
@@ -117,7 +123,8 @@ int Cdescriptions::adddescription(unsigned int informationID, const char *comple
             informationroot->informationID = informationID;
             informationroot->next = NULL;
             informationroot->back = NULL;
-        } else return 1;
+        } else 
+            return 1;
     }
     return 0;
 }
@@ -125,39 +132,49 @@ int Cdescriptions::adddescription(unsigned int informationID, const char *comple
 int Cdescriptions::deldescription(unsigned int informationID) {
     informationlist *list = NULL;
     if ((list = getdescription(informationID))) {
-        if (list->next) list->next->back = list->back;
-        if (list->back) list->back->next = list->next;
-        else informationroot = list->next;
+        if (list->next) 
+            list->next->back = list->back;
+        if (list->back) 
+            list->back->next = list->next;
+        else 
+            informationroot = list->next;
         pvfree(list->information);
         pvfree(list);
-    } else return 1;
+    } else 
+        return 1;
     return 0;
 }
 
 informationlist *Cdescriptions::getdescription(unsigned int informationID) {
     informationlist *list = informationroot;
     if (informationroot) {
-        while ((list->informationID != informationID) && (list->next)) list = list->next;
-        if (list->informationID != informationID) return NULL;
-    } else return NULL;
+        while ((list->informationID != informationID) && (list->next)) 
+            list = list->next;
+        if (list->informationID != informationID) 
+            return NULL;
+    } else 
+        return NULL;
     return list;
 }
 
 char *Cdescriptions::completename(unsigned int informationID) {
     informationlist *list = NULL;
-    if ((list = getdescription(informationID))) return list->information->completename;
+    if ((list = getdescription(informationID))) 
+        return list->information->completename;
     return NULL;
 }
 
 char *Cdescriptions::smalldescription(unsigned int informationID) {
     informationlist *list = NULL;
-    if ((list = getdescription(informationID))) return list->information->smalldescription;
+    if ((list = getdescription(informationID))) 
+        return list->information->smalldescription;
     return NULL;
 }
 
 char *Cdescriptions::largedescription(unsigned int informationID) {
     informationlist *list = NULL;
-    if ((list = getdescription(informationID))) return list->information->largedescription;
+    if ((list = getdescription(informationID))) 
+        return list->information->largedescription;
     return NULL;
 }
 

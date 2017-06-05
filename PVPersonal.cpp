@@ -302,24 +302,35 @@ int PVpersonal::inventory(void) {
         if ((command = strings.vpop(&message)) &&
                 ((!message) || ((infos.player->logics.hasvalue("RANK", "Admin") != 0) &&
                 (infos.player->logics.hasvalue("RANK", "Moderator") != 0)))) {
-            if (!(backup = pvulture.objects.getinventory(infos.player))) return 1;
+            if (!(backup = pvulture.objects.getinventory(infos.player))) 
+                return 1;
         } else {
             if ((player = pvulture.characters.getplayer(message, infos.player->position))) {
-                if (!(backup = pvulture.objects.getinventory(player))) return 1;
+                if (!(backup = pvulture.objects.getinventory(player))) 
+                    return 1;
             } else if ((mob = pvulture.characters.getmob(message, infos.player->position))) {
-                if (!(backup = pvulture.objects.getinventory(mob))) return 1;
-            } else if (infos.player->pvsend(pvulture.server, "[reset]non vedi nessuno con quel nome![n]") > 0) return 1;
+                if (!(backup = pvulture.objects.getinventory(mob))) 
+                    return 1;
+            } else if (infos.player->pvsend(pvulture.server, "[reset]non vedi nessuno con quel nome![n]") > 0) 
+                return 1;
         }
     }
     if (backup) {
         if (mob) {
-            if (infos.player->pvsend(pvulture.server, "%s sta' portando:[n]", charactername = pvulture.characters.gettargetname(mob, infos.player)) > 0) return 1;
+            if (infos.player->pvsend(pvulture.server, "%s sta' portando:[n]", charactername = pvulture.characters.gettargetname(mob, infos.player)) > 0) 
+                return 1;
         } else if (player) {
             if (player->getID() != infos.player->getID()) {
-                if (infos.player->pvsend(pvulture.server, "%s sta' portando:[n]", charactername = pvulture.characters.gettargetname(player, infos.player)) > 0) return 1;
-            } else if (infos.player->pvsend(pvulture.server, "stai portando:[n]") > 0) return 1;
-        } else if (infos.player->pvsend(pvulture.server, "stai portando:[n]") > 0) return 1;
-        if (infos.player->pvsend(pvulture.server, backup) > 0) return 1;
+                if (infos.player->pvsend(pvulture.server, "%s sta' portando:[n]", charactername = pvulture.characters.gettargetname(player, infos.player)) > 0) 
+                    return 1;
+            } else 
+                if (infos.player->pvsend(pvulture.server, "stai portando:[n]") > 0) 
+                    return 1;
+        } else 
+            if (infos.player->pvsend(pvulture.server, "stai portando:[n]") > 0) 
+                return 1;
+        if (infos.player->pvsend(pvulture.server, backup) > 0) 
+            return 1;
         if (charactername) {
             pvfree(charactername);
             charactername = NULL;

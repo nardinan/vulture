@@ -122,10 +122,14 @@ int Cdatabank::getvalue(const char *completename) {
 char *Cdatabank::getvalue(int value) {
     datalist *list = dataroot;
     if (dataroot) {
-        while ((list->value != value) && (list->next)) list = list->next;
-        if (list->value != value) return NULL;
-    } else return NULL;
-    return list->completename;
+        while ((list->value != value) && (list->next)) 
+            list = list->next;
+        if (list->value != value) 
+            return NULL;
+    } else 
+        return NULL;
+    return 
+            list->completename;
 }
 
 int Cdatabank::hasvalue(const char *completename, int value) {
