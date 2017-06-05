@@ -1,0 +1,277 @@
+[WORLD]
+[DESCRIPTIONS]
+Struttura:questa e' struttura:Struttura (e non Strettura) e' un ambiente completamente sterile dove puoi provare i vari comandi e i vari movimenti:0
+[/DESCRIPTIONS]
+[ZONE]
+ID=0
+[DESCRIPTIONS]
+Zona Allegra:una zona molto allegra:Questa zona, parte di Struttura, e' allegra (non si capisce perche):0
+[/DESCRIPTIONS]
+[POINTS]
+NAME=Logic
+SMALL=Logic
+LARGE=Logic
+[MESSAGES]
+Un piccione attraversa il cielo=0
+Si sente una risata in lontananza=1
+Cose divertenti accadono tutte attorno a te=2
+Qualcuno 'ride pe nun piagne'=3
+NULL=4
+[/MESSAGES]
+[SYSTEM]
+Position=0
+[/SYSTEM]
+[CLIMATE:0]
+Rainy=1
+Foggy=1
+Cloudy=0
+Stormy=1
+Sunny=0
+Snowy=1
+[/CLIMATE:0]
+[CLIMATE:1]
+Rainy=1
+Foggy=1
+Cloudy=0
+Stormy=1
+Sunny=0
+Snowy=1
+[/CLIMATE:1]
+[CLIMATE:2]
+Rainy=1
+Foggy=1
+Cloudy=1
+Stormy=1
+Sunny=1
+Snowy=1
+[/CLIMATE:2]
+[CLIMATE:3]
+Rainy=1
+Foggy=1
+Cloudy=1
+Stormy=1
+Sunny=1
+Snowy=0
+[/CLIMATE:3]
+[CLIMATE:4]
+Rainy=1
+Foggy=0
+Cloudy=1
+Stormy=0
+Sunny=1
+Snowy=0
+[/CLIMATE:4]
+[CLIMATE:5]
+Rainy=1
+Foggy=0
+Cloudy=1
+Stormy=0
+Sunny=1
+Snowy=0
+[/CLIMATE:5]
+[CLIMATE:6]
+Rainy=1
+Foggy=0
+Cloudy=0
+Stormy=0
+Sunny=1
+Snowy=0
+[/CLIMATE:6]
+[CLIMATE:7]
+Rainy=1
+Foggy=0
+Cloudy=0
+Stormy=0
+Sunny=1
+Snowy=0
+[/CLIMATE:7]
+[CLIMATE:8]
+Rainy=1
+Foggy=0
+Cloudy=1
+Stormy=0
+Sunny=1
+Snowy=0
+[/CLIMATE:8]
+[CLIMATE:9]
+Rainy=1
+Foggy=1
+Cloudy=1
+Stormy=0
+Sunny=1
+Snowy=0
+[/CLIMATE:9]
+[CLIMATE:10]
+Rainy=1
+Foggy=1
+Cloudy=1
+Stormy=1
+Sunny=1
+Snowy=1
+[/CLIMATE:10]
+[CLIMATE:11]
+Rainy=1
+Foggy=1
+Cloudy=1
+Stormy=1
+Sunny=0
+Snowy=1
+[/CLIMATE:11]
+[WEATHER]
+Current=1
+[/WEATHER]
+[/POINTS]
+[TILE]
+ID=0
+[POINTS]
+NAME=Logic
+SMALL=Logic
+LARGE=Logic
+[STATUS]
+Walkable=1
+Peaceful=0
+[/STATUS]
+[SYSTEM]
+Internal=1
+[/SYSTEM]
+[TERRAIN]
+$23=0
+[/TERRAIN]
+[/POINTS]
+[DESCRIPTIONS]
+Camera da letto:una camera:Una camera da letto molto curata con finiture barocche. Fortunatamente il letto e' gia' stato rifatto cosi' non devi perdere tempo.:0
+Camera da letto:una camera:Una camera da letto molto curata con finiture barocche. Fortunatamente il letto e' gia' stato rifatto cosi' non devi perdere tempo.:1
+Camera da letto:una camera:Una camera da letto molto curata con finiture barocche. Fortunatamente il letto e' gia' stato rifatto cosi' non devi perdere tempo.:2
+Camera da letto:una camera:Una camera da letto molto curata con finiture barocche. Fortunatamente il letto e' gia' stato rifatto cosi' non devi perdere tempo.:3
+Camera da letto:una camera:Una camera da letto molto curata con finiture barocche. Fortunatamente il letto e' gia' stato rifatto cosi' non devi perdere tempo.:4
+Camera da letto:una camera:Una camera da letto molto curata con finiture barocche. Fortunatamente il letto e' gia' stato rifatto cosi' non devi perdere tempo.:5
+Camera da letto:una camera:Una camera da letto molto curata con finiture barocche. Fortunatamente il letto e' gia' stato rifatto cosi' non devi perdere tempo.:6
+Camera da letto:una camera:Una camera da letto molto curata con finiture barocche. Fortunatamente il letto e' gia' stato rifatto cosi' non devi perdere tempo.:7
+Camera da letto:una camera:Una camera da letto molto curata con finiture barocche. Fortunatamente il letto e' gia' stato rifatto cosi' non devi perdere tempo.:8
+Camera da letto:una camera:Una camera da letto molto curata con finiture barocche. Fortunatamente il letto e' gia' stato rifatto cosi' non devi perdere tempo.:9
+Camera da letto:una camera:Una camera da letto molto curata con finiture barocche. Fortunatamente il letto e' gia' stato rifatto cosi' non devi perdere tempo.:10
+Camera da letto:una camera:Una camera da letto molto curata con finiture barocche. Fortunatamente il letto e' gia' stato rifatto cosi' non devi perdere tempo.:11
+Camera da letto:una camera:Una camera da letto molto curata con finiture barocche. Fortunatamente il letto e' gia' stato rifatto cosi' non devi perdere tempo.:12
+Camera da letto:una camera:Una camera da letto molto curata con finiture barocche. Fortunatamente il letto e' gia' stato rifatto cosi' non devi perdere tempo.:13
+Camera da letto:una camera:Una camera da letto molto curata con finiture barocche. Fortunatamente il letto e' gia' stato rifatto cosi' non devi perdere tempo.:14
+Camera da letto:una camera:Una camera da letto molto curata con finiture barocche. Fortunatamente il letto e' gia' stato rifatto cosi' non devi perdere tempo.:15
+Camera da letto:una camera:Una camera da letto molto curata con finiture barocche. Fortunatamente il letto e' gia' stato rifatto cosi' non devi perdere tempo.:16
+Camera da letto:una camera:Una camera da letto molto curata con finiture barocche. Fortunatamente il letto e' gia' stato rifatto cosi' non devi perdere tempo.:17
+Camera da letto:una camera:Una camera da letto molto curata con finiture barocche. Fortunatamente il letto e' gia' stato rifatto cosi' non devi perdere tempo.:18
+Camera da letto:una camera:Una camera da letto molto curata con finiture barocche. Fortunatamente il letto e' gia' stato rifatto cosi' non devi perdere tempo.:19
+Camera da letto:una camera:Una camera da letto molto curata con finiture barocche. Fortunatamente il letto e' gia' stato rifatto cosi' non devi perdere tempo.:20
+Camera da letto:una camera:Una camera da letto molto curata con finiture barocche. Fortunatamente il letto e' gia' stato rifatto cosi' non devi perdere tempo.:21
+Camera da letto:una camera:Una camera da letto molto curata con finiture barocche. Fortunatamente il letto e' gia' stato rifatto cosi' non devi perdere tempo.:22
+Camera da letto:una camera:Una camera da letto molto curata con finiture barocche. Fortunatamente il letto e' gia' stato rifatto cosi' non devi perdere tempo.:23
+[/DESCRIPTIONS]
+[OBJECTS]
+[/OBJECTS]
+[/TILE]
+[TILE]
+ID=1
+[POINTS]
+NAME=Logic
+SMALL=Logic
+LARGE=Logic
+[STATUS]
+Walkable=1
+Peaceful=0
+[/STATUS]
+[SYSTEM]
+Internal=1
+[/SYSTEM]
+[TERRAIN]
+$0=0
+[/TERRAIN]
+[/POINTS]
+[DESCRIPTIONS]
+Soggiorno:una stanza:Il Soggiorno e' veramente luminoso e piacevole (seppur sia notte). Curato nei minimi particolari e gia' spolverato.:0
+Soggiorno:una stanza:Il Soggiorno e' veramente luminoso e piacevole (seppur sia notte). Curato nei minimi particolari e gia' spolverato.:1
+Soggiorno:una stanza:Il Soggiorno e' veramente luminoso e piacevole (seppur sia notte). Curato nei minimi particolari e gia' spolverato.:2
+Soggiorno:una stanza:Il Soggiorno e' veramente luminoso e piacevole (seppur sia notte). Curato nei minimi particolari e gia' spolverato.:3
+Soggiorno:una stanza:Il Soggiorno e' veramente luminoso e piacevole (seppur sia notte). Curato nei minimi particolari e gia' spolverato.:4
+Soggiorno:una stanza:Il Soggiorno e' veramente luminoso e piacevole (seppur sia notte). Curato nei minimi particolari e gia' spolverato.:5
+Soggiorno:una stanza:Il Soggiorno e' veramente luminoso e piacevole. Curato nei minimi particolari e gia' spolverato.:6
+Soggiorno:una stanza:Il Soggiorno e' veramente luminoso e piacevole. Curato nei minimi particolari e gia' spolverato.:7
+Soggiorno:una stanza:Il Soggiorno e' veramente luminoso e piacevole. Curato nei minimi particolari e gia' spolverato.:8
+Soggiorno:una stanza:Il Soggiorno e' veramente luminoso e piacevole. Curato nei minimi particolari e gia' spolverato.:9
+Soggiorno:una stanza:Il Soggiorno e' veramente luminoso e piacevole. Curato nei minimi particolari e gia' spolverato.:10
+Soggiorno:una stanza:Il Soggiorno e' veramente luminoso e piacevole. Curato nei minimi particolari e gia' spolverato.:11
+Soggiorno:una stanza:Il Soggiorno e' veramente luminoso e piacevole. Curato nei minimi particolari e gia' spolverato.:12
+Soggiorno:una stanza:Il Soggiorno e' veramente luminoso e piacevole. Curato nei minimi particolari e gia' spolverato.:13
+Soggiorno:una stanza:Il Soggiorno e' veramente luminoso e piacevole. Curato nei minimi particolari e gia' spolverato.:14
+Soggiorno:una stanza:Il Soggiorno e' veramente luminoso e piacevole. Curato nei minimi particolari e gia' spolverato.:15
+Soggiorno:una stanza:Il Soggiorno e' veramente luminoso e piacevole. Curato nei minimi particolari e gia' spolverato.:16
+Soggiorno:una stanza:Il Soggiorno e' veramente luminoso e piacevole. Curato nei minimi particolari e gia' spolverato.:17
+Soggiorno:una stanza:Il Soggiorno e' veramente luminoso e piacevole. Curato nei minimi particolari e gia' spolverato.:18
+Soggiorno:una stanza:Il Soggiorno e' veramente luminoso e piacevole. Curato nei minimi particolari e gia' spolverato.:19
+Soggiorno:una stanza:Il Soggiorno e' veramente luminoso e piacevole (seppur sia notte). Curato nei minimi particolari e gia' spolverato.:20
+Soggiorno:una stanza:Il Soggiorno e' veramente luminoso e piacevole (seppur sia notte). Curato nei minimi particolari e gia' spolverato.:21
+Soggiorno:una stanza:Il Soggiorno e' veramente luminoso e piacevole (seppur sia notte). Curato nei minimi particolari e gia' spolverato.:22
+Soggiorno:una stanza:Il Soggiorno e' veramente luminoso e piacevole (seppur sia notte). Curato nei minimi particolari e gia' spolverato.:23
+[/DESCRIPTIONS]
+[OBJECTS]
+OBJECT=10
+[/OBJECTS]
+[/TILE]
+[TILE]
+ID=2
+[POINTS]
+NAME=Logic
+SMALL=Logic
+LARGE=Logic
+[STATUS]
+Walkable=1
+Peaceful=0
+[/STATUS]
+[SYSTEM]
+Internal=1
+[/SYSTEM]
+[TERRAIN]
+$23=0
+[/TERRAIN]
+[/POINTS]
+[DESCRIPTIONS]
+Bagno:la porcellana vien di notte con le scarpe tutte rotte:Un bagno incredibilmente ordinato. Leggermente fuori contesto se paragonato al resto della casa.:0
+Bagno:la porcellana vien di notte con le scarpe tutte rotte:Un bagno incredibilmente ordinato. Leggermente fuori contesto se paragonato al resto della casa.:1
+Bagno:la porcellana vien di notte con le scarpe tutte rotte:Un bagno incredibilmente ordinato. Leggermente fuori contesto se paragonato al resto della casa.:2
+Bagno:la porcellana vien di notte con le scarpe tutte rotte:Un bagno incredibilmente ordinato. Leggermente fuori contesto se paragonato al resto della casa.:3
+Bagno:la porcellana vien di notte con le scarpe tutte rotte:Un bagno incredibilmente ordinato. Leggermente fuori contesto se paragonato al resto della casa.:4
+Bagno:la porcellana vien di notte con le scarpe tutte rotte:Un bagno incredibilmente ordinato. Leggermente fuori contesto se paragonato al resto della casa.:5
+Bagno:la porcellana vien di notte con le scarpe tutte rotte:Un bagno incredibilmente ordinato. Leggermente fuori contesto se paragonato al resto della casa.:6
+Bagno:la porcellana vien di notte con le scarpe tutte rotte:Un bagno incredibilmente ordinato. Leggermente fuori contesto se paragonato al resto della casa.:7
+Bagno:la porcellana vien di notte con le scarpe tutte rotte:Un bagno incredibilmente ordinato. Leggermente fuori contesto se paragonato al resto della casa.:8
+Bagno:la porcellana vien di notte con le scarpe tutte rotte:Un bagno incredibilmente ordinato. Leggermente fuori contesto se paragonato al resto della casa.:9
+Bagno:la porcellana vien di notte con le scarpe tutte rotte:Un bagno incredibilmente ordinato. Leggermente fuori contesto se paragonato al resto della casa.:10
+Bagno:la porcellana vien di notte con le scarpe tutte rotte:Un bagno incredibilmente ordinato. Leggermente fuori contesto se paragonato al resto della casa.:11
+Bagno:la porcellana vien di notte con le scarpe tutte rotte:Un bagno incredibilmente ordinato. Leggermente fuori contesto se paragonato al resto della casa.:12
+Bagno:la porcellana vien di notte con le scarpe tutte rotte:Un bagno incredibilmente ordinato. Leggermente fuori contesto se paragonato al resto della casa.:13
+Bagno:la porcellana vien di notte con le scarpe tutte rotte:Un bagno incredibilmente ordinato. Leggermente fuori contesto se paragonato al resto della casa.:14
+Bagno:la porcellana vien di notte con le scarpe tutte rotte:Un bagno incredibilmente ordinato. Leggermente fuori contesto se paragonato al resto della casa.:15
+Bagno:la porcellana vien di notte con le scarpe tutte rotte:Un bagno incredibilmente ordinato. Leggermente fuori contesto se paragonato al resto della casa.:16
+Bagno:la porcellana vien di notte con le scarpe tutte rotte:Un bagno incredibilmente ordinato. Leggermente fuori contesto se paragonato al resto della casa.:17
+Bagno:la porcellana vien di notte con le scarpe tutte rotte:Un bagno incredibilmente ordinato. Leggermente fuori contesto se paragonato al resto della casa.:18
+Bagno:la porcellana vien di notte con le scarpe tutte rotte:Un bagno incredibilmente ordinato. Leggermente fuori contesto se paragonato al resto della casa.:19
+Bagno:la porcellana vien di notte con le scarpe tutte rotte:Un bagno incredibilmente ordinato. Leggermente fuori contesto se paragonato al resto della casa.:20
+Bagno:la porcellana vien di notte con le scarpe tutte rotte:Un bagno incredibilmente ordinato. Leggermente fuori contesto se paragonato al resto della casa.:21
+Bagno:la porcellana vien di notte con le scarpe tutte rotte:Un bagno incredibilmente ordinato. Leggermente fuori contesto se paragonato al resto della casa.:22
+Bagno:la porcellana vien di notte con le scarpe tutte rotte:Un bagno incredibilmente ordinato. Leggermente fuori contesto se paragonato al resto della casa.:23
+[/DESCRIPTIONS]
+[OBJECTS]
+OBJECT=4
+[/OBJECTS]
+[/TILE]
+[/ZONE]
+[ARCHESLIST]
+[ARCHES]
+0:0:0:1:sud:sud:sud:-1:0:0:1
+[/ARCHES]
+[ARCHES]
+0:1:0:0:nord:nord:nord:-1:0:0:1
+0:1:0:2:est:est:est:-1:0:0:1
+[/ARCHES]
+[ARCHES]
+0:2:0:1:ovest:ovest:ovest:-1:0:0:1
+[/ARCHES]
+[/ARCHESLIST]
+[/WORLD]

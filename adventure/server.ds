@@ -1,0 +1,8 @@
+[SERVER]
+NAME=PVServer
+LARGE=PVServer
+SURL=www.psychogames.net
+ANAME=admin Psycho
+AMAIL=andrea@nardinan.it
+PORT=5090
+[/SERVER]

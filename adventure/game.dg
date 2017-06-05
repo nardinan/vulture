@@ -1,0 +1,27 @@
+[PVULTURE]
+LOGO=[bold] ______                               _        [n][bold]|  ____|                             (_)       [n][bold]| |__    ___   ___  _ __ ___   _ __   _   ___  [n][bold]|  __|  / __| / _ \| '_ ` _ \ | '_ \ | | / _ \ [n][bold]| |____ \__ \|  __/| | | | | || |_) || || (_) |[n][bold]|______||___/ \___||_| |_| |_|| .__/ |_| \___/ [n][bold]                              | |              [n][bold]                              |_|              [n]
+MESSAGE=Immaginate qui, al posto di questo messaggio, un'introduzione ad effetto per la vostra avventura[n]
+SUBTITLE=Una avventura di prova, con lo scopo di mostrare le funzionalita' di Project Vulture[n]
+[PLAYERS]
+giocatore=0
+[/PLAYERS]
+[DIARY]
+... e la gente vedeva che si poteva fare tutto, e tutto era buono (capitolo I di un libro a caso) [n][n]=1
+... e nessuno si lavo' piu per motivi di pigrizia (capitolo II di un libro qualsiasi) [n][n]=2
+[/DIARY]
+[GROUPS]
+[/GROUPS]
+PLAYERS=1
+OBJECTS=4
+MOBS=0
+SHELL={<LP>|<ST>}<group><hide>
+TIMECLIMATE=180
+TIMEMESSAGE=180
+TIMETIMEOUT=180
+TIMEROUND=3
+TIMEBLOOD=3
+TIMESTUN=180
+ATTACKLIFE=3
+ATTACKSTAMINA=0
+LOGINTRIES=3
+[/PVULTURE]

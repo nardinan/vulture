@@ -1,0 +1,66 @@
+[PLAYER]
+ID=0
+SEX=0
+BIRTH=26:1:1987
+POSITION=0:1
+PASSWORD=password
+DEFINITION=LP:STATS:LPoints:1
+DEFINITION=ST:STATS:SPoints:2
+[DESCRIPTIONS]
+giocatore:incuriosito:Un fantastico e meraviglioso giocatore:0
+[/DESCRIPTIONS]
+[POINTS]
+NAME=Logic
+SMALL=Player's logic
+LARGE=Player's logic
+[STATS]
+LPoints=100
+WPoints=100
+SPoints=100
+Legs=100
+Arms=100
+[/STATS]
+[SYSTEM]
+Position=0
+[/SYSTEM]
+[STATUS]
+[/STATUS]
+[CHARS]
+Def=10
+Dam=20
+Att=10
+ST=10
+DE=10
+IN=10
+CH=100
+CO=10
+AC=100
+SP=50
+EM=100
+[/CHARS]
+[RANK]
+Admin=1
+Immortal=0
+[/RANK]
+[WEAPONS]
+Fucile a pompa=0
+Falce della morte=1
+Fionda con pietre esplosive=2
+NULL=3
+[/WEAPONS]
+[MAXVALUES]
+SYSTEM=100
+STATS=100
+CHARS=100
+STATUS=1
+RANK=1
+[/MAXVALUES]
+[RACE]
+razza=0
+[/RACE]
+[/POINTS]
+[OBJECTS]
+[/OBJECTS]
+[CHARACTERS]
+[/CHARACTERS]
+[/PLAYER]
