@@ -28,7 +28,6 @@ SDL_Texture *window = NULL;
 SDL_Texture *warning = NULL;
 SDL_Window *screen = NULL;
 SDL_Renderer *render = NULL;
-SDL_Surface *windowSurface = NULL;
 int barvalue = 0;
 int playervalue = -1;
 
@@ -49,10 +48,6 @@ SDL_Texture *SDL_interface_ColorKeyLoadBMP(const char *path, int R, int G, int B
         result = SDL_CreateTextureFromSurface(render, (*image));
     }
     return result;
-}
-
-SDL_Texture *SDL_interface_SurfaceLoadBMP(const char *path) {
-
 }
 
 int SDL_interface_BlitSurface(SDL_Texture *surface, SDL_Rect *source, SDL_Window *screen, SDL_Rect *destination) {
@@ -247,12 +242,11 @@ int Cinterface::initialize(void) {
                 SDL_WINDOWPOS_UNDEFINED,
                 640,
                 480,
-                SDL_WINDOW_OPENGL))) {
+                0))) {
             LOG_ERROR("Unable to load SDL pvinterface (%dx%dx%d SDL_SWSURFACE)", 640, 480, 32);
             return 1;
         }
     }
-    windowSurface = SDL_GetWindowSurface(screen);
     if (!(render = SDL_CreateRenderer(screen, -1, SDL_RENDERER_ACCELERATED))) {
         LOG_ERROR("Unable to create SDL renderere");
         return 1;
@@ -577,7 +571,6 @@ int Cinterface::rectangle(int posx, int posy, int width, int heigh, unsigned int
     SDL_SetRenderDrawColor(render, red, green, blue, 255);
     SDL_RenderFillRect(render, &size);
     return 0;
-    //return SDL_FillRect(windowSurface, &size, SDL_MapRGB(windowSurface->format, red, green, blue));
 }
 
 skeypressed Cinterface::getinput(void) {
@@ -629,10 +622,6 @@ void sdlunload(void) {
     if (warning) {
         SDL_interface_FreeSurface(warning);
         warning = NULL;
-    }
-    if (windowSurface) {
-        SDL_FreeSurface(windowSurface);
-        windowSurface = NULL;
     }
     SDL_DestroyRenderer(render);
     SDL_DestroyWindow(screen);

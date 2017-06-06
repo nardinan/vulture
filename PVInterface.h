@@ -31,7 +31,6 @@ extern SDL_Texture *window;
 extern SDL_Texture *warning;
 extern SDL_Window *screen;
 extern SDL_Renderer *render;
-extern SDL_Surface *windowSurface;
 extern int barvalue;
 extern int playervalue;
 
