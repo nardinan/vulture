@@ -292,8 +292,10 @@ int executeplayer(void) {
     int value = 0;
     bool pquit = false;
     char *commandword = NULL, *backup = NULL;
-    if (infos.player->pvrecv(pvulture.server, &infos.message, 0, 1) == 1) pquit = true;
-    if (pvulture.stopwatch.getsecs(getvalue("STATUS", "Last", infos.player->logics, 0)) >= timetimeout) pquit = true;
+    if (infos.player->pvrecv(pvulture.server, &infos.message, 0, 1) == 1) 
+        pquit = true;
+    if (pvulture.stopwatch.getsecs(getvalue("STATUS", "Last", infos.player->logics, 0)) >= timetimeout) 
+        pquit = true;
     if (infos.player->logics.hasvalue("STATUS", "Online") == 0) {
         if ((infos.player->logics.hascategory("FIGHT") == 0) && (getvalue("STATS", "LPoints", infos.player->logics, 0) > pointstun)) {
             if (round((Ccharacter *) infos.player) > 0) LOG_ERROR("Unable to run FIGHT.ROUND()");

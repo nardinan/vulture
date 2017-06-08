@@ -254,7 +254,8 @@ int Cserver::pvrecv(unsigned int socketID, char **message, unsigned int sec, uns
         FD_ZERO(&rdset);
         FD_SET(list->socket, &rdset);
         if (select(list->socket + 1, &rdset, NULL, NULL, &timeout) > 0) {
-            for (index = 0; index < _DEFAULT_MAXD_LEN; index++) string[index] = '\0';
+            for (index = 0; index < _DEFAULT_MAXD_LEN; index++) 
+                string[index] = '\0';
             //if ((size = recv(list->socket, string, _DEFAULT_MAXD_LEN - 1, 0)) > 0) { //WINDOWS
             if ((size = read(list->socket, &string, _DEFAULT_MAXD_LEN - 1)) > 0) { //UNIX
                 for (index = 0; (index < size) && (!*message); index++) {
@@ -265,17 +266,22 @@ int Cserver::pvrecv(unsigned int socketID, char **message, unsigned int sec, uns
                                 strcpy(*message, list->torcv);
                                 (*message)[strlen(list->torcv)] = '\0';
                             } else return 1;
-                            for (index = 0; index < (_DEFAULT_MAXD_LEN); index++) list->torcv[index] = '\0';
+                            for (index = 0; index < (_DEFAULT_MAXD_LEN); index++) 
+                                list->torcv[index] = '\0';
                         }
                     } else if (character == '\b') {
-                        if (strlen(list->torcv) > 0) list->torcv[strlen(list->torcv) - 1] = '\0';
-                    } else {
-                        if (strlen(list->torcv) < _DEFAULT_MAXD_LEN) list->torcv[strlen(list->torcv)] = character;
+                        if (strlen(list->torcv) > 0) 
+                            list->torcv[strlen(list->torcv) - 1] = '\0';
+                    } else if (isprint(character)) {
+                        if (strlen(list->torcv) < _DEFAULT_MAXD_LEN) 
+                            list->torcv[strlen(list->torcv)] = character;
                     }
                 }
-            } else return 1;
+            } else 
+                return 1;
         }
-    } else return 1;
+    } else 
+        return 1;
     return 0;
 }
 

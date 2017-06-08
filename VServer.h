@@ -23,6 +23,7 @@
 #include <stdarg.h>
 #include <string.h>
 #include <stdio.h>
+#include <ctype.h>
 #include "VTools.h"
 #include "VAlloc.h"
 #include "VData.h"

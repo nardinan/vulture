@@ -244,7 +244,7 @@ int Callocate::vtelnet(char **string, const char *format, ...) {
             va_end(args);
             try {
                 if (strstr(*string, "[reset]")) {
-                    strings.vreplace(string, "[reset]", "\x1B[0m");
+                    strings.vreplace(string, "[reset]", "\xff\xfc\x1\x1B[0m");
                 }
                 if (strstr(*string, "[bold]")) {
                     strings.vreplace(string, "[bold]", "\x1B[1m");
@@ -259,7 +259,7 @@ int Callocate::vtelnet(char **string, const char *format, ...) {
                     strings.vreplace(string, "[n]", "\n\r\x1B[0m");
                 }
                 if (strstr(*string, "[hide]")) {
-                    strings.vreplace(string, "[hide]", "\x1B[8m");
+                    strings.vreplace(string, "[hide]", "\xff\xfb\x1");
                 }
                 if (strstr(*string, "[red]")) {
                     strings.vreplace(string, "[red]", "\x1B[31m");
